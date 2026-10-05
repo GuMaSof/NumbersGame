@@ -6,14 +6,22 @@ namespace NumbersGame
 {
     internal class Correction
     {
-        public void CorrectAnswers( int inputInteger, int theCorrectAnswer, bool gameIsOn)
+        private int inputInteger;
+        private int theCorrectAnswer;
+        private bool gameIsOn;
+
+        public Correction (int inputInteger, int theCorrectAnswer, bool gameIsOn)
+        {
+            this.inputInteger = inputInteger;
+            this.theCorrectAnswer = theCorrectAnswer;
+            this.gameIsOn = gameIsOn;
+        }
+        public void CorrectAnswers()
         {
             //Here we check if inputInteger is the correct answer or not.
             if (inputInteger == theCorrectAnswer)
             {
                 Console.WriteLine("Wohoo! Du klarade det!");
-
-                //Turns the while-loop off.
                 gameIsOn = false;
             }
             else if (inputInteger < theCorrectAnswer)

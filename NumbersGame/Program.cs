@@ -11,17 +11,18 @@ namespace NumbersGame
 
             string inputString; //The unconverted input from the user.
 
-            int inputInteger; //Converted input from the user.
+            int inputInteger; //Converted input from the user. Assigned initial value to fend off the error messages. Will assign a different one later.
 
             //Controls number of attempts that the user is allowed to make before losing.
             int numberOfAttempts = 5;
 
             //We need to create an object of the Random class i order to randomly choose what the right answer is going to be.
             Random randomObject = new Random();
-            Correction correctingGuesses = new Correction();
+            
             //Here we decide what the correct answer shall be randomly.
             int theCorrectAnswer = randomObject.Next(1, 20); //In later analysis we shall use theCorrectAnswer.
 
+            
             //This structure maintains the 'game', keeping it running.
             while (gameIsOn == true)
             {
@@ -38,7 +39,7 @@ namespace NumbersGame
                 numberOfAttempts = numberOfAttempts - 1;
 
                 //Here we check if there are any attempts remaining.
-                if (!(numberOfAttempts <= 0))
+                if ((numberOfAttempts > 0 && gameIsOn == true))
                 {
                     /*Here a system for converting the inputString is required in order to carry on,
                  * so that we may analyze the input later.
@@ -46,7 +47,8 @@ namespace NumbersGame
                  */
                     if (int.TryParse(inputString, out inputInteger))
                     {
-                        correctingGuesses.CorrectAnswers(inputInteger, theCorrectAnswer, gameIsOn);
+                        Correction correctingGuesses = new Correction(inputInteger, theCorrectAnswer, gameIsOn);
+                        correctingGuesses.CorrectAnswers();
                     }
                     else
                     {
