@@ -18,7 +18,7 @@ namespace NumbersGame
 
             //We need to create an object of the Random class i order to randomly choose what the right answer is going to be.
             Random randomObject = new Random();
-
+            Correction correctingGuesses = new Correction();
             //Here we decide what the correct answer shall be randomly.
             int theCorrectAnswer = randomObject.Next(1, 20); //In later analysis we shall use theCorrectAnswer.
 
@@ -46,28 +46,7 @@ namespace NumbersGame
                  */
                     if (int.TryParse(inputString, out inputInteger))
                     {
-                        //Here we check if inputInteger is the correct answer or not.
-                        if (inputInteger == theCorrectAnswer)
-                        {
-                            Console.WriteLine("Wohoo! Du klarade det!");
-                            
-                            //Turns the while-loop off.
-                            gameIsOn = false;
-                        }
-                        else if (inputInteger < theCorrectAnswer)
-                        {
-                            Console.WriteLine("Tyvärr, du gissade för lågt!");
-                            
-                        }
-                        else if (inputInteger > theCorrectAnswer)
-                        {
-                            Console.WriteLine("Tyvärr, du gissade för högt!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Error!");
-                            
-                        }
+                        correctingGuesses.CorrectAnswers(inputInteger, theCorrectAnswer, gameIsOn);
                     }
                     else
                     {
