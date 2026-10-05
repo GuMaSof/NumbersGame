@@ -14,13 +14,13 @@ namespace NumbersGame
             int inputInteger; //Converted input from the user.
 
             //Controls number of attempts that the user is allowed to make before losing.
-            int numberOfAttempts = 4; //I've chosen to write 4 because the if doesn't react fast enough when I write 5.
+            int numberOfAttempts = 5;
 
             //We need to create an object of the Random class i order to randomly choose what the right answer is going to be.
             Random randomObject = new Random();
 
             //Here we decide what the correct answer shall be randomly.
-            int theCorrectAnswer = randomObject.Next(1, 21); //In later analysis we shall use theCorrectAnswer.
+            int theCorrectAnswer = randomObject.Next(1, 20); //In later analysis we shall use theCorrectAnswer.
 
             //This structure maintains the 'game', keeping it running.
             while (gameIsOn == true)
@@ -67,7 +67,7 @@ namespace NumbersGame
                         else if (inputInteger > theCorrectAnswer)
                         {
                             Console.WriteLine("Tyvärr, du gissade för högt!");
-
+                            Console.WriteLine("Tryck på valfri knapp för att försöka igen");
                             //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
                             Console.ReadLine();
                         }
@@ -88,10 +88,10 @@ namespace NumbersGame
                 else
                 {
                     Console.WriteLine("Tyvärr, du lyckades inte gissa talet på fem försök!");
-
+                    Console.ReadLine();
                     gameIsOn = false; //Here we turn the while-loop off.
                     //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
-                    Console.ReadLine();
+                    
                 }
             }
         }
