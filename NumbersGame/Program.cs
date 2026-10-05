@@ -50,33 +50,23 @@ namespace NumbersGame
                         if (inputInteger == theCorrectAnswer)
                         {
                             Console.WriteLine("Wohoo! Du klarade det!");
-
-                            //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
-                            Console.ReadLine();
-
+                            
                             //Turns the while-loop off.
                             gameIsOn = false;
                         }
                         else if (inputInteger < theCorrectAnswer)
                         {
                             Console.WriteLine("Tyvärr, du gissade för lågt!");
-
-                            //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
-                            Console.ReadLine();
+                            
                         }
                         else if (inputInteger > theCorrectAnswer)
                         {
                             Console.WriteLine("Tyvärr, du gissade för högt!");
-                            Console.WriteLine("Tryck på valfri knapp för att försöka igen");
-                            //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
-                            Console.ReadLine();
                         }
                         else
                         {
                             Console.WriteLine("Error!");
-
-                            //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
-                            Console.ReadLine();
+                            
                         }
                     }
                     else
@@ -88,7 +78,7 @@ namespace NumbersGame
                 else
                 {
                     Console.WriteLine("Tyvärr, du lyckades inte gissa talet på fem försök!");
-                    Console.ReadLine();
+                    
                     gameIsOn = false; //Here we turn the while-loop off.
                     //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
                     
