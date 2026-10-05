@@ -22,7 +22,7 @@ namespace NumbersGame
             //Here we decide what the correct answer shall be randomly.
             int theCorrectAnswer = randomObject.Next(1, 20); //In later analysis we shall use theCorrectAnswer.
 
-            if (gameIsOn == true)
+            while (gameIsOn == true)
             {
                 for(int i = 0; i < numberOfAttempts; i++)
                 {
@@ -35,12 +35,10 @@ namespace NumbersGame
 
                     inputString = Console.ReadLine(); //Here the user puts something into the inputString.
 
-                    //Here we check if there are any attempts remaining.
-                    if ((numberOfAttempts > 0 && gameIsOn == true))
+                    if ((i !< numberOfAttempts))
                     {
                         /*Here a system for converting the inputString is required in order to carry on,
                      * so that we may analyze the input later.
-                     * I would be reluctant to use if-statements for complicated selection structures, but for simple ones, like this one, it's convenient.
                      */
                         if (int.TryParse(inputString, out inputInteger))
                         {
