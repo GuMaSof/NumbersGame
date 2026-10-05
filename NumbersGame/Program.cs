@@ -22,47 +22,44 @@ namespace NumbersGame
             //Here we decide what the correct answer shall be randomly.
             int theCorrectAnswer = randomObject.Next(1, 20); //In later analysis we shall use theCorrectAnswer.
 
-            
-            //This structure maintains the 'game', keeping it running.
-            while (gameIsOn == true)
+            if (gameIsOn == true)
             {
-                //The obligatory message necessary for communicating with the user.
-                Console.WriteLine("Välkommen! Jag tänker på ett nummer. Kan du gissa vilket?");
-
-                /*I choose to tell the user directly to type, because it is always best to have low competence-assumption towards the user.
-                 That way you are more likely to design user-friendly software.*/
-                Console.WriteLine("Skriv din gissning nu!");
-
-                inputString = Console.ReadLine(); //Here the user puts something into the inputString.
-
-                //We reduce the number of attempts remaining by 1 each time.
-                numberOfAttempts = numberOfAttempts - 1;
-
-                //Here we check if there are any attempts remaining.
-                if ((numberOfAttempts > 0 && gameIsOn == true))
+                for(int i = 0; i < numberOfAttempts; i++)
                 {
-                    /*Here a system for converting the inputString is required in order to carry on,
-                 * so that we may analyze the input later.
-                 * I would be reluctant to use if-statements for complicated selection structures, but for simple ones, like this one, it's convenient.
-                 */
-                    if (int.TryParse(inputString, out inputInteger))
+                    //The obligatory message necessary for communicating with the user.
+                    Console.WriteLine("Välkommen! Jag tänker på ett nummer. Kan du gissa vilket?");
+
+                    /*I choose to tell the user directly to type, because it is always best to have low competence-assumption towards the user.
+                     That way you are more likely to design user-friendly software.*/
+                    Console.WriteLine("Skriv din gissning nu!");
+
+                    inputString = Console.ReadLine(); //Here the user puts something into the inputString.
+
+                    //Here we check if there are any attempts remaining.
+                    if ((numberOfAttempts > 0 && gameIsOn == true))
                     {
-                        Correction correctingGuesses = new Correction(inputInteger, theCorrectAnswer, gameIsOn);
-                        correctingGuesses.CorrectAnswers();
+                        /*Here a system for converting the inputString is required in order to carry on,
+                     * so that we may analyze the input later.
+                     * I would be reluctant to use if-statements for complicated selection structures, but for simple ones, like this one, it's convenient.
+                     */
+                        if (int.TryParse(inputString, out inputInteger))
+                        {
+                            Correction correctingGuesses = new Correction(inputInteger, theCorrectAnswer, gameIsOn);
+                            correctingGuesses.CorrectAnswers();
+                        }
+                        else
+                        {
+                            //Necessary error message to communicate in case the user happens to type in a letter.
+                            Console.WriteLine("Error! Du måste skriva en siffra!");
+                        }
                     }
                     else
                     {
-                        //Necessary error message to communicate in case the user happens to type in a letter.
-                        Console.WriteLine("Error! Du måste skriva en siffra!");
+                        Console.WriteLine("Tyvärr, du lyckades inte gissa talet på fem försök!");
+
+                        gameIsOn = false; //Here we turn the while-loop off.
+
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Tyvärr, du lyckades inte gissa talet på fem försök!");
-                    
-                    gameIsOn = false; //Here we turn the while-loop off.
-                    //There is no other purpose behind putting Readline here besides keeping the console open a bit longer.
-                    
                 }
             }
         }
