@@ -1,0 +1,1 @@
+This is a program is a game giving psuedo-random number for you to guess. If you guess correctly then it congratulates you and ends itself. If you guess wrong five times then it will no longer allow to keep guessing.
