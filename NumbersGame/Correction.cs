@@ -8,13 +8,11 @@ namespace NumbersGame
     {
         private int inputInteger;
         private int theCorrectAnswer;
-        private bool gameIsOn;
 
-        public Correction (int inputInteger, int theCorrectAnswer, bool gameIsOn)
+        public Correction (int inputInteger, int theCorrectAnswer)
         {
             this.inputInteger = inputInteger;
             this.theCorrectAnswer = theCorrectAnswer;
-            this.gameIsOn = gameIsOn;
         }
         public void CorrectAnswers()
         {
