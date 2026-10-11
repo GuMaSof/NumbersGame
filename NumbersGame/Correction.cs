@@ -14,29 +14,26 @@ namespace NumbersGame
             this.inputInteger = inputInteger;
             this.theCorrectAnswer = theCorrectAnswer;
         }
-        public bool CorrectAnswers(bool gameIsOn)
+        public void CorrectAnswers(bool gameIsOn)
         {
             //Here we check if inputInteger is the correct answer or not.
             if (inputInteger == theCorrectAnswer)
             {
                 Console.WriteLine("Wohoo! Du klarade det!");
-                return gameIsOn = false;
+                gameIsOn = false;
             }
             else if (inputInteger < theCorrectAnswer)
             {
                 Console.WriteLine("Tyvärr, du gissade för lågt!");
-                return gameIsOn = true;
 
             }
             else if (inputInteger > theCorrectAnswer)
             {
                 Console.WriteLine("Tyvärr, du gissade för högt!");
-                return gameIsOn = true;
             }
             else
             {
                 Console.WriteLine("Error!");
-                return gameIsOn = true;
 
             }
         }
