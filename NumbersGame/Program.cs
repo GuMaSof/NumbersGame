@@ -15,7 +15,7 @@ namespace NumbersGame
 
             //Controls number of attempts that the user is allowed to make before losing.
             int maxAttempts = 5;
-
+            int userAttempts = 0;
             //We need to create an object of the Random class i order to randomly choose what the right answer is going to be.
             Random randomObject = new Random();
             
@@ -24,8 +24,9 @@ namespace NumbersGame
 
             while (gameIsOn == true)
             {
-                if ((i < maxAttempts))
+                if ((userAttempts < maxAttempts))
                 {
+                    userAttempts = userAttempts + 1;
                     //The obligatory message necessary for communicating with the user.
                     Console.WriteLine("Välkommen! Jag tänker på ett nummer. Kan du gissa vilket?");
 
