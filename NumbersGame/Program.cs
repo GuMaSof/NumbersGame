@@ -24,7 +24,7 @@ namespace NumbersGame
 
             while (gameIsOn == true)
             {
-                for(int i = 0; i <= numberOfAttempts; i++)
+                for(int i = 0; i < 5; i++)
                 {
                     //The obligatory message necessary for communicating with the user.
                     Console.WriteLine("Välkommen! Jag tänker på ett nummer. Kan du gissa vilket?");
@@ -35,7 +35,7 @@ namespace NumbersGame
 
                     inputString = Console.ReadLine(); //Here the user puts something into the inputString.
 
-                    if ((i <= numberOfAttempts))
+                    if ((i < 5))
                     {
                         /*Here a system for converting the inputString is required in order to carry on,
                      * so that we may analyze the input later.
@@ -43,7 +43,7 @@ namespace NumbersGame
                         if (int.TryParse(inputString, out inputInteger))
                         {
                             Correction correctingGuesses = new Correction(inputInteger, theCorrectAnswer);
-                            correctingGuesses.CorrectAnswers();
+                            correctingGuesses.CorrectAnswers(gameIsOn);
                         }
                         else
                         {

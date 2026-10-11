@@ -14,7 +14,7 @@ namespace NumbersGame
             this.inputInteger = inputInteger;
             this.theCorrectAnswer = theCorrectAnswer;
         }
-        public void CorrectAnswers()
+        public void CorrectAnswers(bool gameIsOn)
         {
             //Here we check if inputInteger is the correct answer or not.
             if (inputInteger == theCorrectAnswer)
